@@ -28,7 +28,7 @@ RUN mkdir -p /config/../../shared/config/lib/global
 RUN cp /config/lib/* /config/../../shared/config/lib/global/
 RUN chmod -R 755 /config/../../shared
 COPY ./binary/lib/PLANTSDB.* /config/lib/
-RUN chmod -R 755 /config/lib/PLANTSDB.tar.gz
+#RUN chmod -R 755 /config/lib/PLANTSDB.tar.gz
 RUN gzip -d /config/lib/PLANTSDB.tar.gz
 RUN tar -xvf /config/lib/PLANTSDB.tar
 
