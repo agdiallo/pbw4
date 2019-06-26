@@ -3,7 +3,7 @@
 
 
 #IMAGE: Get the base image for Liberty
-FROM websphere-liberty:webProfile7
+FROM websphere-liberty:javaee7
 
 COPY --chown=1001:0 ./server.xml /config
 
@@ -31,7 +31,7 @@ RUN chmod -R 755 /config/../../shared
 COPY ./binary/lib/PLANTSDB.* /config/lib/
 #RUN chmod -R 755 /config/lib/PLANTSDB.tar.gz
 RUN mkdir -p /config/lib/PLANTSDB
-RUN tar -xvf /config/lib/PLANTSDB.tar.gz -C /config/lib/PLANTSDB
+RUN tar -xvf /config/lib/PLANTSDB.tar.gz -C /config/lib/
 #RUN tar -xvf /config/lib/PLANTSDB.tar   tar xzf archive.tar.gz -C /destination
 RUN rm /config/lib/PLANTSDB.tar.gz
 RUN rm /config/lib/PLANTSDB.zip
