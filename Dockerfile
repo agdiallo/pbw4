@@ -33,6 +33,8 @@ COPY ./binary/lib/PLANTSDB.* /config/lib/
 RUN mkdir -p /config/lib/PLANTSDB
 RUN tar -xvf /config/lib/PLANTSDB.tar.gz -C /config/lib/PLANTSDB
 #RUN tar -xvf /config/lib/PLANTSDB.tar   tar xzf archive.tar.gz -C /destination
+RUN rm /config/lib/PLANTSDB.tar.gz
+RUN rm /config/lib/PLANTSDB.zip
 
 USER root
 #FEATURES: Install any features that are required
