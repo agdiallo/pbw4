@@ -22,7 +22,6 @@ ARG HTTP_ENDPOINT=false
 #BINARIES: Add in all necessary application binaries
 COPY --chown=1001:0 Dockerfile ./binary/application/* /config/apps/
 RUN mkdir /config/lib
-RUN mkdir -p /config/lib/PLANTSDB
 RUN chmod -R 777 /config/lib/
 #RUN unzip /config/lib/PLANTSDB.zip
 COPY --chown=1001:0 Dockerfile ./binary/lib/* /config/lib/
@@ -31,6 +30,7 @@ RUN cp /config/lib/* /config/../../shared/config/lib/global/
 RUN chmod -R 755 /config/../../shared
 COPY ./binary/lib/PLANTSDB.* /config/lib/
 #RUN chmod -R 755 /config/lib/PLANTSDB.tar.gz
+RUN mkdir -p /config/lib/PLANTSDB
 RUN tar -xvf /config/lib/PLANTSDB.tar.gz -C /config/lib/PLANTSDB
 #RUN tar -xvf /config/lib/PLANTSDB.tar   tar xzf archive.tar.gz -C /destination
 
