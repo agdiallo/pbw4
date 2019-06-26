@@ -13,6 +13,12 @@ ARG SSL=true
 ARG MP_MONITORING=true
 ARG HTTP_ENDPOINT=false
 
+#install unzip and wget
+RUN \
+apt-get update && \
+apt-get install unzip wget -y && \
+rm -rf /var/lib/apt/lists/*
+
 #BINARIES: Add in all necessary application binaries
 COPY --chown=1001:0 Dockerfile ./binary/application/* /config/apps/
 RUN mkdir /config/lib
