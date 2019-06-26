@@ -16,6 +16,8 @@ ARG HTTP_ENDPOINT=false
 #BINARIES: Add in all necessary application binaries
 COPY --chown=1001:0 Dockerfile ./binary/application/* /config/apps/
 RUN mkdir /config/lib
+COPY ./binary/lib/PLANTSDB.zip /config/lib
+RUN unzip /config/lib/PLANTSDB.zip
 COPY --chown=1001:0 Dockerfile ./binary/lib/* /config/lib/
 RUN mkdir -p /config/../../shared/config/lib/global
 RUN cp /config/lib/* /config/../../shared/config/lib/global/
